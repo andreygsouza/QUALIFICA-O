@@ -1,0 +1,156 @@
+\chapter{CONCEITOS GERAIS}
+
+
+\section{Extração de Características}
+
+Em aprendizado de máquina, reconhecimento de padrões e processamento de imagem, extração de características começa por um conjunto inicial de dados medidos e retorna valores derivados (características) com a intenção de serem informativas e não redundantes, facilitando assim o subsequentes passo de aprendizagem e generalização e, em alguns casos, levando a uma melhor interpretação dos dados. 
+
+\subsection{Estatísticas de Ordem Superior}
+
+O termo Estatística de Ordem Superior (EOS) refere à funções que usam a terceira potência ou superiores de uma certa amostra, diferentemente de Estatística de Ordem Inferior, que fazem uso de termos constantes, lineares e quadráticos (potências zero, um e dois). EOS pode ser definidos em termos de momentos e cumulantes. enquanto momentos são próprios para descrever sinais determinísticos, cumulantes são adequados para a análise de sinais estocásticos (dados de direção podem ser classificados como estocásticos) \cite{guedes2016non}:. 
+Considere $x$ como um processo aleatório, real e discreto com média zero. Então, a segundo, terceiro e quarto cumulante podem ser obtidos, respectivamente por 
+
+Dado um caso unidimensional ($d = 1$), os momentos de uma variável aleatória $X$ podem ser definidos como:
+
+\begin{equation}
+    \begin{matrix}
+        m_1 = \left \langle x \right \rangle\\ 
+        m_2 = \left \langle x^{2} \right \rangle\\ 
+        \vdots \\ 
+        m_n = \left \langle x^{n} \right \rangle
+    \end{matrix}
+\end{equation}
+
+Então os cumulantes podem ser escritos em forma de momentos:
+
+\begin{equation}
+\begin{matrix}
+c_1 = m_1\\ 
+c_2 = m_2-{m_1}^2=\sigma^2\\ 
+c_3 = m_3-3{m_1}{m_2}+2{m_1}^3\\ 
+c_4 = m_4 - 3{m_2}^2-4m_1m_3+12{m_1}^2m_2-6{m_1}^4
+\end{matrix}
+\end{equation}
+
+Os cumulantes $c_1$, $c_2$, $c_3$ e $c_4$ são a média, a variância, a assimetria e a curtose, respectivamente. Dentre os quais somente a média não é uma EOS. Para um sinal discreto $x[n]$, os cumulantes podem ser obtidos ed forma direta por:
+
+\begin{equation}
+    C_{2,x}(\tau) = \frac{1}{N}\sum_{n=0}^{N-1}x[n]x[mod(n+\tau,N)],
+    \label{eq:Dcum2}
+\end{equation}
+
+\begin{equation}
+    C_{3,x}(\tau) = \frac{1}{N}\sum_{n=0}^{N-1}x[n]x^2[mod(n+\tau,N)],
+    \label{eq:Dcum3}
+\end{equation}
+
+\begin{equation} \label{eq:cum4}
+\begin{split}
+    C_{4,x}(\tau) = \frac{1}{N}\sum_{n=0}^{N-1}x[n]x^3[mod(n+\tau,N)]-\\
+    3\frac{1}{N^2}\sum_{n=0}^{N-1}x[n]x[mod(n-\tau,N)].\sum_{n=0}^{N-1}x^2[n]
+\end{split}
+\end{equation}
+
+\noindent onde $x \in \Re^N$, $\tau=[0, 1,...,N-1]$ são os atrasos, e $mod$ é o operador módulo, que retorna o resto de uma operação inteira \cite{moreirahos}.
+
+Como descrito em~\citeonline{mendel1991}, EOS pode levar a resultados mais representativos quando aplicadas como ferramenta de extração de características em processos não lineares e não gaussianos. De acordo com~\citeonline{naves2016}, a maior vantagem do uso dos cumulantes como extrator de características em problemas de classificação é sua propriedade de imunidade à ruido gaussiano.
+
+
+\section{Seleção de variáveis e Redução de Dimesionalidade}
+
+Uma ferramenta importante para melhorar a eficiência da tarefa de classificação em termos de custo computacional é a redução de dimensionalidade. Esta ferramenta pode ser definida como o processo de redução do número de variáveis de entrada pela obtenção de um conjunto de variáveis principais. Em outros termos, estas técnicas transformam um conjunto de dados de amplo espaço dimensional em um espaço de menor dimensão.
+
+A técnica mais utilizada para redução de dimensionalidade é a Análise de Componentes Principais, descrita posteriormente neste trabalho. Outra técnica que pode ser explorada para esta tarefa é a Análise de Componentes Independentes, embora esta não seja convencionalmente usada para redução de dimensionalidade, mas para a separação de sinais sobrepostos. Contudo, existem exemplos na literatura que aplicam ICA para redução de dimensionalidade \cite{wang2006independent} \cite{cao2003comparison}.
+
+\subsection{Análise de Componentes Principais}
+
+PCA é um procedimento matemático que usa uma transformação ortogonal para para converter um conjunto de variáveis possivelmente correlatadas em um conjunto de variáveis não correlacionadas chamadas de componentes principais \cite{wold1987principal}. Sejam $x_t$($t=1,\ldots,l$ e $\sum_{t=1}^{l}{x_t}=0$) um conjunto de vetores de entrada de $m$ dimensões ${x_t}=({x_t}(1),{x_t}(2),\ldots,{x_t}(m))^T$, então PCA transforma linearmente $x_t$ em um novo vetor $s_t$ pela seguinte expressão:
+
+\begin{equation}\label{eq:pca1}
+	{s_t} = {U^T}{x_t},
+\end{equation}
+onde $U$ im uma matriz ortogonal de  $m \times m$ dimensões no qual a  $i$-ésima coluna $u_i$ é o $i$-ésimo autovetor da matriz de covariância  $C$. Portanto, PCA primeiro soluciona o problema dos autovalores:
+
+\begin{equation}\label{eq:pca2}
+	{\lambda _i}{u_i} = C{u_i}, \qquad i=1,\ldots,m,
+\end{equation}
+onde $\lambda _i$ é o $i$-ésimo autovalor de $C$ e ${u_i}$ é seu o autovetor relativo. Então, os componentes de ${s_t}$, baseado no obtido em ${u_i}$, são calculados como a transformação ortogonal de ${x_t}$ por:
+
+\begin{equation}\label{eq:pca3}
+	{s_t}(i) = {u_i}^T{x_t}, \qquad i=1,\ldots,m.
+\end{equation}
+Estes novos componente ${s_t}(i)$ são os componentes principais. Tal qual a Equação \ref{eq:pca3} demonstra, o número de componentes principais de $s_t$ pode ser reduzido pelo uso de somente alguns dos primeiros autovetores ordenados na ordem descendente dos autovalores. Assim, pode-se concluir que PCA tem a característica de reduzir a dimensão de um conjunto de dados \cite{cao2003comparison}. 
+
+\subsection{PCA Incremental}
+
+O PCA é uma ferramenta útil para problemas para redução de dimensionalidade, porém possui certa limitações quando utilizados em datasets maiores. Isto se dá porque o processamento do PCA é efeito em lotes, que faz com que todos os dados a serem processados devam ser armazenados na memória do dispositivo utilizado. Isto pode ser um problema para aplicações em \textit{hardware} embarcado que tem limitações quanto a capacidade de memória \cite{scikit-learn}.
+
+Diante deste problema, a técnica de PCA Incremental (IPCA) contorna este problema, utilizando uma forma diferente de processamento  que permite cálculos parciais que praticamente obtém nos mesmo resultado do PCA, porém realizando o processamento em mini lotes \cite{Weng2003}.
+
+A versão incremental do algoritmo funciona da seguinte maneira: assume-se que já de posse do conjunto de autovetores $U = [u_j], j = 1,\ldots, p$ do vetor de entrada $x_i, i = 1,\ldots,n$. os autovalores correspondentes são $\lambda = diag(\Lambda)$ e a média dos valores é $\overline{x}$. A construção dos incrementos requer a atualização destes autovalores e autovetores levando em conta uma nova entrada $x_{n+1}$. Primeiramente é feita atualização da média por meio da seguinte expressão\cite{Artac2002}:
+
+\begin{equation}\label{eq:ipca1}
+	\overline{x}' = \frac{1}{n+1}(n\overline{x} + x_{n+1})
+\end{equation}
+
+A atualização dos autovetores é feito pela adição do novo vetor e a aplicando uma transformação rotacional. Para tal, calcula-se o vetor ortogonal residual $h_{n+1} = (Ua_{n+1} + \overline{x})-x_{n+1}$ e em seguida sua normalização $\hat{h}_{n+1}'$. A nova matriz $U'$ é calculada por:
+
+\begin{equation}\label{eq:ipca1}
+	U' = [U \hat{h}_{n+1}] R,
+\end{equation}
+\noindent onde $R$ é a matriz de rotação. Este processo é repetido de acordo com o tamanho de lotes definidos (\textit{batch size}). Isto resulta em um processamento mais eficiente em termos de utilização de memória \cite{NIPS2013_5132}.
+
+\subsection{Análise Componentes Independentes}
+
+Análise Componentes Independentes (ICA) \cite{lee1998independent} é uma técnica que originalmente foi desenvolvida para separação cega de fontes, que recupera sinais mutualmente independentes, mas com fontes desconhecidas a partir de suas misturas lineares sem saber os coeficientes de mistura.
+
+ICA considera que os dados são linearmente combinados por um conjunto de fontes independentes e estes sinais podem ser separados de acordo com sua independência estatística \cite{wang2006independent}. Seja $x_t$ a mistura linear e $s_t$ denota o sinal original, então o objetivo do ICA é estimar $s_t$ por:
+
+\begin{equation}\label{eq:ica1}
+	{s_t} = {U}{x_t},
+\end{equation}
+
+\noindent onde $U$ é a matriz $m \times m$ de separação de misturas. Os componentes retornados por $s_t$ são tão independentes estatisticamente quanto possível.
+
+Existem um amplo número de algoritmos que foram desenvolvidos para executar o ICA. Neste trabalho, considerou-se o FastICA de ponto fixo, proposto por \citeonline{hyvarinen1999fast}. Este algoritmo é considerado um dos melhores e mais usados métodos já desenvolvidos. FastICA faz uso de informações mútuas como critério para estimar $s_t$, ao passo que também é uma medida natural de independência entre variáveis aleatórias. A maximização da negentropia (medida do grau de organização do sistema) corresponde à minimização das informações mútuas entre os componentes. Entretanto, esta negentropia não pode ser feita diretamente uma vez que as densidades de probabilidade dos componentes são desconhecidos. A explanação completa do funcionamento do algoritmo FastICA é encontrada em \cite{koldovsky2006efficient}.
+
+As duas principais diferenças entre o PCA e o ICA são, primeiramente, os componentes retornados pelo ICA são estatisticamente independentes, não simplesmente descorrelacionadas tal qual ocorre nos gerados pelo PCA. A segunda distinção é que a matriz  de separação de misturas do ICA não é ortogonal tal qual a do PCA \cite{cao2003comparison}.
+
+\subsection{Análise de Discriminante de Fisher}
+
+Análise de Discriminante de Fisher (FDA) é uma técnica de redução de dimensionalidade, otimizado em termos da maximização da separação entre classes. Dado um conjunto de dados de $n \times m$ dimensões representado pela matriz $X$ com vetor coluna $x_i$, a matriz de dispersão total é dada por \cite{CHIANG20041389}:
+
+\begin{equation}
+    S_t=\sum_{i=1}^{n}(x_i - \mu)(x_i - \mu)^T
+\end{equation}
+
+\noindent onde $\mu$ é o vetor de médias totais dos elementos correspondentes às colunas de $X$. Considerando $X_j$ como o conjuntos de vetores $x_i$ que pertencem à uma determinada classe $j$, ma matriz de dispersão interna para a classe $j$ é
+
+\begin{equation}
+    S_t=\sum_{x_i\in X_j}^{n}(x_i - \mu_{j})(x_i - \mu_{j})^T
+\end{equation}
+
+\noindent onde $\mu_{j}$ é o vetor de médias para a classe $j$. Considerando $c$ o número de classes dos dados, então
+
+\begin{equation}
+    S_w=\sum_{i=1}^{c}S_i
+\end{equation}
+
+\noindent é a matriz de dispersão entre classes, onde $n_j$ é o número de observações na classe $j$.
+
+O primeiro vetor FDA $w_1$ pode ser determinado como:
+
+\begin{equation}
+    \underset{w_1}{\textrm{argmax}} \frac{{w_1}^TS_bw_1}{{w_1}^TS_ww_1}
+\end{equation}
+
+O segundo vetor FDA é calculado de modo a maximizar a dispersão entre classes enquanto minimiza a dispersão entre classes entre todos os eixos perpendiculares com o primeiro vetor FDA em seguida com os vetores FDA restantes. Pode ser provado matematicamente que os vetores FDA são iguais aos autovetores $w_k$ do problema de autovalores generalizados
+
+\begin{equation}
+    S_bw_k = \lambda_jS_ww_k,
+\end{equation}
+
+\noindent onde os autovalores $\lambda_k$ indicam o grau geral de separabilidade entre as classes pela projeção de todas as classes em $w_k$. Com os vetores FDA calculados, as observações são então classificadas de forma a reduzir o espaço dos vetores FDA por meio de uma análise discriminante \cite{sugiyama2007dimensionality}.
+
+
+
