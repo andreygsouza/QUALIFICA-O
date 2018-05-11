@@ -1,0 +1,18 @@
+\contentsline {figure}{\numberline {1.1~\textendash ~}{\ignorespaces Ve\IeC {\'\i }culos Roubados no Brasil por ano.\relax }}{7}{figure.1.1}
+\contentsline {figure}{\numberline {2.1~\textendash ~}{\ignorespaces Exemplos de sistemas de automatiza\IeC {\c c}\IeC {\~a}o em diferentes n\IeC {\'\i }veis.\relax }}{14}{figure.2.1}
+\contentsline {figure}{\numberline {2.2~\textendash ~}{\ignorespaces Exemplo de classifica\IeC {\c c}\IeC {\~a}o kNN com $k = 5$.\relax }}{25}{figure.2.2}
+\contentsline {figure}{\numberline {2.3~\textendash ~}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o de uma Floresta Aleat\IeC {\'o}ria com $n$ \IeC {\'A}rvores de Decis\IeC {\~a}o.\relax }}{26}{figure.2.3}
+\contentsline {figure}{\numberline {2.4~\textendash ~}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o de um neur\IeC {\^o}nio artificial n\IeC {\~a}o linear.\relax }}{27}{figure.2.4}
+\contentsline {figure}{\numberline {2.5~\textendash ~}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o de uma MLP com duas camadas escondidas.\relax }}{28}{figure.2.5}
+\contentsline {figure}{\numberline {2.6~\textendash ~}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o as diferen\IeC {\c c}as de algoritmos de aprendizado Incremental e N\IeC {\~a}o-Incremental.\relax }}{29}{figure.2.6}
+\contentsline {figure}{\numberline {3.1~\textendash ~}{\ignorespaces Vis\IeC {\~a}o geral do Sistema de Identifica\IeC {\c c}\IeC {\~a}o de Condutores baseado em T\IeC {\'e}cnicas de Intelig\IeC {\^e}ncia Computacional.\relax }}{31}{figure.3.1}
+\contentsline {figure}{\numberline {3.2~\textendash ~}{\ignorespaces Vis\IeC {\~a}o geral do Sistema de Identifica\IeC {\c c}\IeC {\~a}o de Condutores baseado em T\IeC {\'e}cnicas de Intelig\IeC {\^e}ncia Computacional.\relax }}{32}{figure.3.2}
+\contentsline {figure}{\numberline {3.3~\textendash ~}{\ignorespaces Fluxo de desenvolvimento e testes do sistema preliminar.\relax }}{37}{figure.3.3}
+\contentsline {figure}{\numberline {4.1~\textendash ~}{\ignorespaces Precis\IeC {\~a}o m\IeC {\'e}dia de cada m\IeC {\'e}todo de redu\IeC {\c c}\IeC {\~a}o de dimensionalidade.\relax }}{39}{figure.4.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces }}{39}{subfigure.0.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces }}{39}{subfigure.0.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces }}{39}{subfigure.0.3}
+\contentsline {figure}{\numberline {4.2~\textendash ~}{\ignorespaces Precis\IeC {\~a}o m\IeC {\'e}dia de cada classificador por m\IeC {\'e}todo de redu\IeC {\c c}\IeC {\~a}o de dimensionalidade.\relax }}{40}{figure.4.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces }}{40}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces }}{40}{subfigure.1.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces }}{40}{subfigure.1.3}

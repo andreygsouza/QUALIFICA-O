@@ -49,7 +49,7 @@
           pdfkeywords={}%
 ]{hyperref} % para referência cruzadas
 %\usepackage{hyperref}            % para referência cruzadas
-\usepackage{subfigure}           % figuras dentro de figuras
+\usepackage{subfig}           % figuras dentro de figuras
 \usepackage{caption}            % remodelando o formato dos títulos de 
                                  % tabelas e figuras
 
@@ -109,7 +109,7 @@ FAE-PE Recovery TelEduc Williams UFLA}
 \author{Andrey Gustavo de Souza}
 \title{Sistema de Identificação de Condutores Baseado em Técnicas de Inteligência Computacional}
 
-\date{2017}
+\date{2018}
 \tipo{Projeto de pesquisa apresentado à Universidade Federal de Lavras, como parte das exigências do Programa de Pós-Graduação em Engenharia de Sistemas e Automação para a obtenção do título de Mestre.}
 % use \orientador ou \orientadora quando for o caso
 \orientador{Prof. Dr. Wilian Soares Lacerda}
@@ -220,11 +220,12 @@ FAE-PE Recovery TelEduc Williams UFLA}
 
 % palavras-chave
 \palchaves{Identificação de Condutores. Comportamento de Condutores. Aprendizado de Máquina. Processamento de Dados. Aplicações Móveis.}
-\resumo{O presente trabalho tem como objetivo apresentar o projeto de pesquisa de Mestrado em Engenharia de Sistemas e Automação pela Universidade Federal de Lavras. O projeto proposto consiste em um sistema de identificação de condutores baseado em técnicas de inteligência computacional. A investigação se iniciará com a avaliação de métodos de processamento e fusão de dados que otimizem a extração de características pelo algoritmo de aprendizado de máquina. Esta técnica também será selecionada por meio de testes de desempenho na tarefa de identificação de condutores e aptidão para aplicação em \textit{hardwares} de menor poder computacional (\textit{smartphones}, sistemas embarcados, FPGA). Em conjunto estes elementos formas o sistema que irá realizar a autenticação de condutores. Este sistema resultará no desenvolvimento de uma aplicação móvel que desempenhará as funções de coleta de dados por meio da interface OBD-II e sensores inerciais embarcados no \textit{smartphone}, processamento deste dados e treinamento da técnica de aprendizado de máquina. O sistema implementado será validado em testes reais e espera-se atingir uma taxa satisfatória de acertos por parte do sistema na autenticação correta dos condutores testados.}% Resumo (digite aqui o resumo)
+\resumo{O presente trabalho tem como objetivo apresentar o projeto de pesquisa de Mestrado em Engenharia de Sistemas e Automação pela Universidade Federal de Lavras. O projeto proposto consiste em um sistema de identificação de condutores baseado em técnicas de inteligência computacional, por meio de dados de direção do barramento CAN do veículo e sensores inerciais. A investigação se inicia com a avaliação de métodos de seleção e extração de características que otimizem o desempenho pelo algoritmo de aprendizado de máquina \textit{batch}. Estes resultados preliminares tem como objetivo comprovar a viabilidade do sistema. Uma vez terminada esta etapa, será implementado um sistema evolutivo de identificação que foque aperfeiçoamento do algortimo de classificação a medida que o mesmo for utilizado. Para o desenvolvimento e testes do sistema serão utilizados bancos de dados de direção disponíveis na literatura, que são constituidos de dados do barramento CAN colhidos por meio da interface OBD-II e sensores inerciais presentes em \textit{smartphones}. O sistema implementado será validado em diferentes testes e espera-se atingir uma taxa satisfatória de acertos por parte do sistema na autenticação correta dos condutores avaliados.}% Resumo (digite aqui o resumo)
 
 % keywords devem vir antes do abstract
 \keywords{Driver Identification. Driver Behavior. Machine Learning. Data Processing. Mobile Application.} % keywords
-\abstract{The present work has the goal of present the Masters Research Project in Systems and Automation Engineering in the Federal University of Lavras. The proposed project consists in a machine learning-based driver identification system. The investigation will start with the evaluation of data processing and fusion techniques that optimize the feature extraction by the machine learning algorithm. This algorithm also will be selected with performance test in the driver identification and its fitness in the application on hardware with limited computational power (smartphones, embedded systems, FPGA). Together, these elements constitute a system which will perform the drivers’ authentication. Such system will result in the development of a smartphone-based application which will perform the tasks of data collection by means of the OBD-II interface and the inertial sensors embedded in smartphones, data processing and the training of a machine learning technique. The implemented system will be validated in real tests and it will be expect a satisfactory hit rate by the system in the correct authentication of the tested drivers.}
+
+\abstract{The present work has the goal of present the Masters Research Project in Systems and Automation Engineering in the Federal University of Lavras. The proposed project consists of a driver identification system based on machine learning techniques, by means of vehicle CAN bus driving data and iinertial sensors. The research begins with the evaluation methods of feature selection and extraction and that optimize the perfromance of the machine learning algorithm. These preliminary results aim to prove the viability of the system. Once this step is completed, an evolving identification system will be implemented, focusing on the improvement of the classification algorithm as it is used. For the development and testing of the system will be used driving datasets available in the literature, which are constituted of CAN-bus data collected through the OBD-II interface and inertial sensors present in smartphones. The implemented system will be validated in different tests and it will be expect a satisfactory hit rate by the system in the correct authentication of the tested drivers.}
 
 %##################################################
 
@@ -259,14 +260,14 @@ FAE-PE Recovery TelEduc Williams UFLA}
 
 \include{2_revisao_literatura}
 
-\include{3_conceitos_gerais}
+%\include{3_conceitos_gerais}
 
 \include{4_metodologia}
 
 \include{5_resultados}
 
 \include{6_equipe}
-
+%
 \include{7_orcamento}
 
 \include{8_cronograma}
@@ -280,8 +281,7 @@ FAE-PE Recovery TelEduc Williams UFLA}
 %inclui Referências Bibliográficas
 %inclui Referências Bibliográficas
 \referencias
-\bibliography{refbib}			% arquivo exemplo refbib.bib
-
+\bibliography{refbib}	% arquivo exemplo refbib.bib
 
 
 %==============================================================================
